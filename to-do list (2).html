@@ -1,0 +1,385 @@
+       <!DOCTYPE html>
+       <html lang="en">
+       <head>
+           <meta charset="UTF-8">
+           <meta http-equiv="X-UA-Compatible" content="IE=edge">
+           <meta name="viewport" content="width=4, initial-scale=1.0">
+           <title>t d list</title>
+           <style>
+               body{
+
+          background-color: blue;
+
+               }
+               table{
+
+text-align: center;
+color: white; 
+width: 81%;
+margin-right: 15px;
+margin-left: 15px;
+               }
+               /* input{
+
+padding: 20px;
+width: 80%                   ;
+
+               }
+.a{
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color: blueviolet;
+width: 80%;
+
+height: 80px;
+margin: 20px 10px;
+padding: 2px 10px;
+border-radius:10px;
+}
+#btn{
+margin: 5px 20px;
+padding: 20px;
+
+}
+#btn2{
+    padding: 20px;
+
+
+} */
+#edr,#edr1{
+
+padding: 20px;
+border-radius: 20px;
+border: none;
+
+}
+input{
+
+    width: 221px;
+    height: 50px;
+}
+.t{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 15px;
+    background-color: blueviolet;
+    padding: 10px;
+}
+div{
+
+color: white;
+/* padding: 20px; */
+
+
+}
+#fdf{
+
+    padding: 30px;
+}
+           </style>
+       </head>
+       <body>
+<h1 style="color: orange; font-family: cursive;text-align: center; font-size: 40px; ">cruds operation javascript</h1>
+<!-- //AMED   SA;LA -->
+<input type="number" placeholder="price" id="1">
+<input type="number" placeholder="ads" id="2">
+<input type="number" placeholder="taxs" id="3">
+<input type="number" placeholder="discount" id="4">
+<button id="fdf">result</button>
+<div></div>
+<span id="ttt"></span>
+
+
+<script>
+    let prodata;
+    if(localStorage.product !=null){
+        prodata=JSON.parse(localStorage.product)
+
+
+    }
+    else{
+        prodata =[];
+      
+
+
+    }
+// let prodata=[]
+ document.querySelector("button").onclick=function(){
+   
+    if(document.getElementById("1").value.length==0 ){
+    alert("write price");
+   
+    }
+    else{
+
+var price=document.getElementById ("1");      
+var ads=document.getElementById ("2");
+var taxs=document.getElementById ("3");
+var discount=document.getElementById ("4");
+// var ttt=document.getElementById ("ttt");
+ var x= document.querySelector("div").innerHTML=(+price.value+ +ads.value+ +taxs.value)- +discount.value;
+
+//  ttt.innerHTML=x;
+
+// document.getElementById("1").value="";
+// document.getElementById("2").value="";
+// document.getElementById("3").value="";
+// document.getElementById("4").value="";
+
+
+}
+var price=document.getElementById ("1");      
+var ads=document.getElementById ("2");
+var taxs=document.getElementById ("3");
+var discount=document.getElementById ("4");
+// var ttt=document.getElementById ("ttt");
+let prodata11={
+
+    price:price.value,
+    ads:ads.value,
+    taxs:taxs.value,
+    discount:discount.value,
+    // ttt:ttt.value,
+
+}
+//save data
+prodata.push(prodata11);
+localStorage.setItem("product" ,JSON.stringify(prodata))
+console.log(prodata)
+
+
+vbv()
+ }
+
+function vbv(e){
+    var price=document.getElementById ("1");      
+var ads=document.getElementById ("2");
+var taxs=document.getElementById ("3");
+var discount=document.getElementById ("4");
+  document.querySelector("span").innerHTML+=
+
+`
+<div class="t">
+<table>
+<tr>
+<th>price</th>
+<th>ads</th>
+<th>taxs</th>
+<th>discount</th>
+</tr>
+<tbody>
+<tr>
+
+<td>${price.value}</td>
+<td>${ads.value}</td>
+<td>${taxs.value}</td>
+<td>${discount.value}</td>
+</tr>
+<br>
+
+
+</tbody>
+</table>
+
+<button id="edr">DEL</button>
+<button id="edr1">Update</button>
+
+
+</div>
+`
+
+
+
+// if(price.value==null && ads.value==null && taxs.value==null && discount.value==null ){
+// e.preventDefault();}
+
+
+var x=document.querySelectorAll("#edr");
+
+for (let i = 0; i < x.length; i++) {
+   x[i].onclick=function(){
+
+   this.parentNode.remove();
+
+
+   }
+    
+}
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// else{
+
+// var price=document.getElementById ("1");      
+// var ads=document.getElementById ("2");
+// var taxs=document.getElementById ("3");
+// var discount=document.getElementById ("4");
+// var ttt=document.getElementById ("ttt");
+//  var x= document.querySelector("div").innerHTML=(+price.value+ +ads.value+ +taxs.value)- +discount.value;
+//  ttt.innerHTML=x;
+
+
+
+
+// }
+
+//}
+
+
+
+
+</script>
+
+
+
+
+
+<!-- 
+            <h1 style="color: wheat;">Google Drive</h1>
+        
+<input type="text"  placeholder="new task" id="inp1">
+<button id="btn2">add</button>
+<div></div>
+
+<script>
+
+document.querySelector("button").onclick=function(){
+if(document.getElementById("inp1").value.length==0){
+
+alert( "fill in gap");
+
+}
+else{
+
+document.querySelector("div").innerHTML+=
+` 
+<div class="a">
+
+ ${document.getElementById("inp1").value} 
+${document.getElementById("inp1").value=""} 
+
+<button  id="btn">Del</button>
+
+
+</div>
+<br>
+          `
+;
+var c=document.querySelectorAll("#btn"); -->
+
+<!-- for( var i=0;   c.length>i ;  i++  )
+
+c[i].onclick=function(){
+this.parentNode.remove();
+
+
+
+
+
+}
+
+}
+
+
+                   
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+</script>
+
+
+
+
+ -->
+
+
+
+
+
+
+           
+       </body>
+       </html>                                                                                     
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
